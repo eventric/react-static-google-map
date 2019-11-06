@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Async from 'react-promise';
+import usePromise from 'react-promise';
 import invariant from 'invariant';
 
 import MarkerStrategy from '../strategies/marker';
@@ -163,21 +163,12 @@ class StaticGoogleMap extends Component {
       parts => `${mainUrlParts}&${parts.filter(part => part).join('&')}`
     );
 
+    const {value, loading} = usePromise(urlParts)
+    if (loading || !value) {
+      return null
+    }
     return (
-      <Async
-        promise={urlParts}
-        then={URL => {
-          if (onGenerate) {
-            onGenerate(URL);
-          }
-
-          return <Component {...componentProps} src={URL} />;
-        }}
-        catch={err => (
-          console.error(err), <span>Image generation failed.</span>
-        )}
-      />
-    );
+      return <Component {...componentProps} src={value} />;
   }
 }
 
