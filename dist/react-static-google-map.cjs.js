@@ -7,7 +7,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var React = require('react');
 var React__default = _interopDefault(React);
 var PropTypes = _interopDefault(require('prop-types'));
-var Async = _interopDefault(require('react-promise'));
+var usePromise = _interopDefault(require('react-promise'));
 var invariant = _interopDefault(require('invariant'));
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
@@ -663,23 +663,14 @@ var StaticGoogleMap = function (_Component) {
         }).join('&');
       });
 
-      return React__default.createElement(Async, {
-        promise: urlParts,
-        then: function then(URL) {
-          if (onGenerate) {
-            onGenerate(URL);
-          }
+      var _usePromise = usePromise(urlParts),
+          value = _usePromise.value,
+          loading = _usePromise.loading;
 
-          return React__default.createElement(Component, _extends({}, componentProps, { src: URL }));
-        },
-        'catch': function _catch(err) {
-          return console.error(err), React__default.createElement(
-            'span',
-            null,
-            'Image generation failed.'
-          );
-        }
-      });
+      if (loading || !value) {
+        return null;
+      }
+      return React__default.createElement(Component, _extends({}, componentProps, { src: value }));
     }
   }]);
   return StaticGoogleMap;

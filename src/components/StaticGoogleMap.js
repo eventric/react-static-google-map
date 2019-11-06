@@ -167,8 +167,7 @@ class StaticGoogleMap extends Component {
     if (loading || !value) {
       return null
     }
-    return (
-      return <Component {...componentProps} src={value} />;
+    return <Component {...componentProps} src={value} />;
   }
 }
 

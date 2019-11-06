@@ -712,23 +712,14 @@
           }).join('&');
         });
 
-        return React__default.createElement(o, {
-          promise: urlParts,
-          then: function then(URL) {
-            if (onGenerate) {
-              onGenerate(URL);
-            }
+        var _usePromise = o(urlParts),
+            value = _usePromise.value,
+            loading = _usePromise.loading;
 
-            return React__default.createElement(Component, _extends({}, componentProps, { src: URL }));
-          },
-          'catch': function _catch(err) {
-            return console.error(err), React__default.createElement(
-              'span',
-              null,
-              'Image generation failed.'
-            );
-          }
-        });
+        if (loading || !value) {
+          return null;
+        }
+        return React__default.createElement(Component, _extends({}, componentProps, { src: value }));
       }
     }]);
     return StaticGoogleMap;

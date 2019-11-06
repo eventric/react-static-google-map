@@ -1,6 +1,6 @@
 import React, { Children, Component } from 'react';
 import PropTypes from 'prop-types';
-import Async from 'react-promise';
+import usePromise from 'react-promise';
 import invariant from 'invariant';
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
@@ -656,23 +656,14 @@ var StaticGoogleMap = function (_Component) {
         }).join('&');
       });
 
-      return React.createElement(Async, {
-        promise: urlParts,
-        then: function then(URL) {
-          if (onGenerate) {
-            onGenerate(URL);
-          }
+      var _usePromise = usePromise(urlParts),
+          value = _usePromise.value,
+          loading = _usePromise.loading;
 
-          return React.createElement(Component$$1, _extends({}, componentProps, { src: URL }));
-        },
-        'catch': function _catch(err) {
-          return console.error(err), React.createElement(
-            'span',
-            null,
-            'Image generation failed.'
-          );
-        }
-      });
+      if (loading || !value) {
+        return null;
+      }
+      return React.createElement(Component$$1, _extends({}, componentProps, { src: value }));
     }
   }]);
   return StaticGoogleMap;
