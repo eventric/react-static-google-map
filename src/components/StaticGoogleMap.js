@@ -164,6 +164,7 @@ class StaticGoogleMap extends Component {
     );
 
     const {value, loading} = usePromise(urlParts)
+    console.log("loading", loading, "value", value)
     if (loading || !value) {
       return null
     }

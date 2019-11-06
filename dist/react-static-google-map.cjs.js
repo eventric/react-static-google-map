@@ -667,6 +667,7 @@ var StaticGoogleMap = function (_Component) {
           value = _usePromise.value,
           loading = _usePromise.loading;
 
+      console.log("loading", loading, "value", value);
       if (loading || !value) {
         return null;
       }
