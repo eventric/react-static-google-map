@@ -2735,11 +2735,10 @@ react-is@^16.8.4:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.11.0.tgz#b85dfecd48ad1ce469ff558a882ca8e8313928fa"
   integrity sha512-gbBVYR2p8mnriqAwWx9LbuUrShnAuSCNnuPGyc7GJrMVQtPDAh8iLpv7FRuMPFb56KkaVZIYSz1PrjI9q0QPCw==
 
-react-promise@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/react-promise/-/react-promise-2.0.0.tgz#089769abf2178c96b8932c7aae9b3ac878dd8c7c"
-  dependencies:
-    prop-types "^15.6.0"
+react-promise@^3.0.0:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/react-promise/-/react-promise-3.0.2.tgz#1180f9e9d2e1a5362d005688c002366b4e9f2b67"
+  integrity sha512-Ez2aFel11b08H2HAWNnKf0GDV5ATGBmxK9UXHXxoKwCEoQey9manXDTwB2n3mhgOvMRzGH/YTHACdqQUjXf6Rw==
 
 react@>=0.14.x:
   version "16.0.0"
@@ -3258,8 +3257,9 @@ type-check@~0.3.2:
     prelude-ls "~1.1.2"
 
 ua-parser-js@^0.7.9:
-  version "0.7.17"
-  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.17.tgz#e9ec5f9498b9ec910e7ae3ac626a805c4d09ecac"
+  version "0.7.28"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.28.tgz#8ba04e653f35ce210239c64661685bf9121dec31"
+  integrity sha512-6Gurc1n//gjp9eQNXjD9O3M/sMwVtN5S8Lv9bvOYBfKfDNiIIhqiyi01vMBO45u4zkDE420w/e0se7Vs+sIg+g==
 
 uglify-js@^3.1.4:
   version "3.6.0"
